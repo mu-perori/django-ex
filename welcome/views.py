@@ -21,7 +21,6 @@ def get_nyuuryoku(request):
         nyuryoku2 = request.POST['nyuryoku2']
         nyuryoku3 = request.POST['nyuryoku3']
         
-        print("Hello!")
         params = {
             "nyuryoku1": nyuryoku1,
             "nyuryoku2": nyuryoku2,
@@ -29,7 +28,7 @@ def get_nyuuryoku(request):
             "message": message,
         }
 
-        return render(request, '~', params)
+        return render(request, 'welcome/input_test.html', params)
 
 
 def index(request):

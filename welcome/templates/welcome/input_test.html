@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1>input test</h1>
-  <form action="{% url 'welcome:input_test' %}" method="post">
+  <form action="{% url 'input_test' %}" method="post">
     {% csrf_token %}
     <div class="field">
         <label>入力１</label><input type="text" name="nyuryoku1" id="nyuryoku1">
@@ -17,6 +17,7 @@
     <input type="submit" value="送信">
   </form>
 
+  <!--Fix me: 以下、送信しても表示されません。-->
   <div class="field">
     <h4>{{ nyuryoku1 }}</h4>
     <h4>{{ nyuryoku2 }}</h4>

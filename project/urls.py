@@ -4,9 +4,6 @@ from django.contrib import admin
 
 from welcome.views import index, index_ja, health, input_test
 
-# welcomeフォルダの下を一番最初に探してくださいという指示
-app_name = 'welcome'
-
 urlpatterns = [
     # Examples:
     # url(r'^$', 'project.views.home', name='home'),

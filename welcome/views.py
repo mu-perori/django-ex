@@ -21,9 +21,10 @@ def practice(request):
         'phone_number': '初期値', 
         'office_hours': '初期値', 
     }
-    # json_open = open('medical_institutions.json', 'r')
-    # medical_institutions = json.load(json_open)
+    json_open = open('medical_institutions.json', 'r')
+    medical_institutions = json.load(json_open)
 
+    """""
     medical_institutions = {
     "耳鼻科":{
         "病院名":"〇〇耳鼻科",
@@ -52,11 +53,13 @@ def practice(request):
         }
     }
     }
+    """""
+
     if (request.method == 'POST'):
         year, month, day = list(map(int, request.POST['consultation_day'].split("-")))
         dt = datetime.datetime(year, month, day)
 
-        department_dict = {1: "内科", 2: "内科", 3: "歯科", 4: "整形外科", 5: "耳鼻科"}
+        department_dict = {1: "内科", 2: "内科", 3: "歯科", 4: "整形外科", 5: "耳鼻科", 6: "皮膚科", 7: "整形外科"}
         department = department_dict[int(request.POST['condition'])]
 
         institution = medical_institutions[department]

@@ -6,7 +6,7 @@ class TestForm(forms.Form):
 
 class PracticeForm(forms.Form):
     choices = (
-            (1, "腹痛"),
+            (1, "頭痛"),
             (2, "発熱"),
             (3, "歯痛"),
             (4, "腰痛"),

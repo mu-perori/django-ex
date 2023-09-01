@@ -16,14 +16,20 @@ def practice(request):
     
     my_dict = {
         'form': PracticeForm(),
-        'insert_forms': '初期値', 
+        'medical_institution': '初期値', 
+        'phone_number': '初期値', 
+        'office_hours': '初期値', 
     }
 
     if (request.method == 'POST'):
         year, month, day = list(map(int, request.POST['consultation_day'].split("-")))
-        dt = datetime.datetime(year, month, day)
-        
-        my_dict['insert_forms'] = '文字列:' + dt.strftime('%a') + '\n整数型:' + request.POST['condition']
+        dt = datetime.datetime(year, month, day) # 曜日：dt.strftime('%a')
+        # Update: 診療科に変換
+        # hospital_department = request.POST['condition']
+
+        my_dict['medical_institution'] = "〇〇クリニック"
+        my_dict['phone_number'] = "000-1234-5678"        
+        my_dict['office_hours'] = "10:00~12:00, 15:00~17:00"
         my_dict['form'] = PracticeForm(request.POST)
 
     return render(request, 'welcome/practice.html', my_dict)

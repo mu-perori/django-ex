@@ -7,11 +7,13 @@
 </head>
 <body>
   <h1>practice</h1>
-  <p>{{ insert_forms|linebreaksbr }}</p>
   <form action="{% url 'practice' %}" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="送信">
   </form>
+  <p>医療機関名 {{ medical_institution|linebreaksbr }}</p>
+  <p>電話番号 {{ phone_number|linebreaksbr }}</p>  
+  <p>診療時間 {{ office_hours|linebreaksbr }}</p>
 </body>
 </html>

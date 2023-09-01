@@ -2,14 +2,15 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from welcome.views import index, index_ja, health, input_test
+from welcome.views import index, index_ja, health, input_test, practice
 
 urlpatterns = [
     # Examples:
     # url(r'^$', 'project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$', input_test, name='input_test'),
+    url(r'^$', practice, name='practice'),
+    url(r'^input_test$', input_test, name='input_test'),
     url(r'^en$', index),
     url(r'^ja$', index_ja),
     url(r'^health$', health),

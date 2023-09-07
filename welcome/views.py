@@ -212,7 +212,7 @@ def info(request):
             #     "appointments": ["2018-01-15 1:00 - Dentist", "2018-02-14 4:00 - Internal Medicine", "2018-09-30 8:00 - Pediatry"]
             # }
 
-            patientinfo = backend_api.get_patient_info("", "")
+            patientinfo = backend_api.get_patient_info("", request.GET.get('id'))
             patientdata = {
                 "personal": patientinfo,
                 "medications": ["Metoprolol", "ACE inhibitors", "Vitamin D"],

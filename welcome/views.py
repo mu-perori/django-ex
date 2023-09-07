@@ -70,7 +70,7 @@ def measurements(request):
     })
 
 # htmlとhtmlに表示するデータとで分ける
-# measurementController.jsの9行目を変更
+# measurementController.jsの9行目も変更
 def measurementsdata(request):
     measurements = {
         "smokerstatus": "Former smoker",
@@ -196,21 +196,25 @@ def info(request):
     global CURRENTMODE
 
     if (request.method == 'GET'):
-        # app.jsの48-66行目を移植
-
-        # logger.debug('called the information endpoint for ' + req.query.id);
 
         # ここはbackend_api.pyの関数を呼ぶように変更が必要。
         if (CURRENTMODE == MODE['TEST']):
+            # patientdata = {
+            #     "personal": {
+            #         "name": "Ralph DAlmeida",
+            #         "age": 38,
+            #         "gender": "male",
+            #         "street": "34 Main Street",
+            #         "city": "Toronto",
+            #         "zipcode": "M5H 1T1"
+            #     },
+            #     "medications": ["Metoprolol", "ACE inhibitors", "Vitamin D"],
+            #     "appointments": ["2018-01-15 1:00 - Dentist", "2018-02-14 4:00 - Internal Medicine", "2018-09-30 8:00 - Pediatry"]
+            # }
+
+            patientinfo = backend_api.get_patient_info("", "")
             patientdata = {
-                "personal": {
-                    "name": "Ralph DAlmeida",
-                    "age": 38,
-                    "gender": "male",
-                    "street": "34 Main Street",
-                    "city": "Toronto",
-                    "zipcode": "M5H 1T1"
-                },
+                "personal": patientinfo,
                 "medications": ["Metoprolol", "ACE inhibitors", "Vitamin D"],
                 "appointments": ["2018-01-15 1:00 - Dentist", "2018-02-14 4:00 - Internal Medicine", "2018-09-30 8:00 - Pediatry"]
             }
@@ -220,5 +224,3 @@ def info(request):
             # REST APIではjson.dumpsが必要
         else:
             return
-            # この辺はbackendpi.jsの書き直しも必要そうなので、書くのが難しい。
-            # そのため、現状はCURRENTMODE=TESTでしか動かせない。

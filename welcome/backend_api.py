@@ -4,7 +4,7 @@
 # getPatientInfo
 def get_patient_info(url, patient_id):
     patient_info = {
-        "name": "Ralph DAlmeida",
+        "name": patient_id,
         "age": 38,
         "gender": "male",
         "street": "34 Main Street",
